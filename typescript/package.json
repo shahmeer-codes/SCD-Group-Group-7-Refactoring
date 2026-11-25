@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --require ts-node/register --recursive 'test/**/*.test.ts'",
-    "watch:test": "npm run test -- --watch-extensions ts  --watch"
+    "watch:test": "npm run test -- --watch-extensions ts  --watch",
+    "compile": "tsc"
   },
   "author": "Johan Martinsson",
   "license": "ISC",
@@ -19,7 +20,7 @@
   "dependencies": {
     "@types/lodash": "^4.14.119",
     "@types/node": "^10.12.18",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "ts-node": "^7.0.1",
     "typescript": "^3.2.2"
   }

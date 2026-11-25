@@ -1,4 +1,4 @@
-# The Supermarket Receipt Refactoring Kata - PHP version With Tests
+# The Supermarket Receipt Refactoring Kata - PHP version
 
 See the [top level readme](../README.md) for general information about this exercise. This is the PHP version of The
 Supermarket Receipt Refactoring Kata
@@ -45,15 +45,10 @@ The project uses composer to install:
 
 ## Folders
 
-- `src` contains the **ReceiptPrinter** Class which needs to be tested and refactored.
-    - `models` contains the 11 Classes and Interface which need to be tested and refactored.
-- `tests` contains
-  - **ReceiptPrinterTest** which tests **ReceiptPrinter**.
-  - **SupermarketTest** which tests the models,
-  - it also contains **FakeCatalog** Class is a basic implementation of the **SupermarketCatalog** interface, which
-    allows the tests to run.
-      - `approvals` - Contain the approved text files for each test method of ReceiptPrinterTest (these should not be
-        changed)
+- `src` - Contains the **ReceiptPrinter** Class which needs to be tested and refactored.
+    - `models` - Contains the 11 Classes and Interface which need to be tested and refactored.
+- `tests` - Contains **SupermarketTest** which tests **ReceiptPrinter**. **FakeCatalog** is a basic implementation of
+  the **SupermarketCatalog** interface allowing the tests to run.
 
 ## Testing
 
@@ -144,7 +139,7 @@ branch for working examples.
 
 ## Start with the refactoring
 
-This is the `with_tests` branch. This branch allows you to do just the refactoring part of this exercise.
- The tests have reasonably good coverage and should support most kinds of refactorings you'd like to do.
+If you would like to just do the refactoring part of this exercise, you can instead check out the `with_tests` branch.
+Those tests have reasonably good coverage and should support most kinds of refactorings you'd like to do.
 
 **Happy coding**!

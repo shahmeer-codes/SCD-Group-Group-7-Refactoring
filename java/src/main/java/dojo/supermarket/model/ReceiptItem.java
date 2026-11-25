@@ -9,7 +9,7 @@ public class ReceiptItem {
     private final double totalPrice;
     private final double quantity;
 
-    public ReceiptItem(Product p, double quantity, double price, double totalPrice) {
+    ReceiptItem(Product p, double quantity, double price, double totalPrice) {
         this.product = p;
         this.quantity = quantity;
         this.price = price;
