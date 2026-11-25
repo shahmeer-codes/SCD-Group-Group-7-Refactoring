@@ -1,9 +1,19 @@
 # Software Construction and Development — Final Assignment Report
 
-**Group:** Group 7  
-**Repository:** [SCD-Group-Group-7-Refactoring](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring)  
-**Legacy Project:** Supermarket Receipt Refactoring Kata (Python Implementation)  
-**Upstream Source:** [swkWien/SupermarketReceipt-Refactoring-Kata](https://github.com/swkWien/SupermarketReceipt-Refactoring-Kata)  
+## Cover Information
+
+- **University:** Khwaja Fareed University of Engineering & Information Technology (KFUEIT), Rahim Yar Khan
+- **Institute:** Institute of Computer and Software Engineering
+- **Course:** Software Construction and Development (SCD)
+- **Assignment:** Assignment 2 — CLO_2, P3
+- **Group:** Group 7
+- **Project Title:** Supermarket Receipt Refactoring Kata (Python Legacy Code Refactoring)
+- **Repository URL:** https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring
+- **Group Members:**
+  - Muhammad Shah Nawaz (`SWEN241101006`) — `shahnawz-tech`
+  - Shahmeer Arshad (`SWEN241101027`) — `shahmeer-codes`
+  - Ahmad Abbas (`SWEN241101020`) — `Ahmad-naqvi`
+  - Mehtab Gohar (`SWEN241101030`) — `mughal-codes`
 
 ---
 
@@ -76,6 +86,8 @@ In the baseline codebase, no formal UML diagram existed, and responsibilities we
 ### Improved Object-Oriented Design
 The target UML class diagram is available at [docs/design-model.png](design-model.png) (PlantUML source: [docs/design-model.puml](design-model.puml)).
 
+![Improved UML Class Diagram](design-model.png)
+
 Key structural improvements include:
 1. **`SupermarketCatalog` Contract Alignment:** `product_with_name(name)` is defined on `SupermarketCatalog` and implemented by `FakeCatalog`, so `Teller` depends only on the catalog abstraction.
 2. **Polymorphic `OfferStrategy` Hierarchy (`python/offer_strategies.py`):** `OfferStrategy` defines `calculate_discount(product, quantity, unit_price, argument)`. Concrete strategies—`ThreeForTwoStrategy`, `PercentDiscountStrategy`, and parameterized `BundleForAmountStrategy`—eliminate the 39-line conditional in `ShoppingCart.handle_offers` and remove duplicated multi-buy formulas.
@@ -94,7 +106,7 @@ Key structural improvements include:
 ### Framework, Command, and Final Results
 - **Framework:** `pytest` (`9.2.0`) with `unittest.TestCase` and `approvaltests` (`21.1.0`)
 - **Command:** `cd python && pytest -v`
-- **Final Integrated Result on `develop`:** **`42 passed in 0.65s`** (0 failures, 0 skipped).
+- **Final Integrated Result:** **`42 passed in 0.87s`** (0 failures, 0 skipped).
 
 External behavior remained 100% preserved throughout all four refactorings, including legacy `TWO_FOR_AMOUNT` arithmetic (`floor_bundle_count=False`), verified by running the full suite after every individual refactoring and again after all four PRs were merged into `develop`.
 
@@ -104,9 +116,9 @@ External behavior remained 100% preserved throughout all four refactorings, incl
 
 The repository was forked from `swkWien/SupermarketReceipt-Refactoring-Kata` into `shahmeer-codes/SCD-Group-Group-7-Refactoring`. A `develop` branch was created from the `with_tests` baseline (`72ee9d3`), and `main` was kept untouched during all development phases.
 
-Four non-overlapping `refactor/*` feature branches were created from `develop`, each containing focused commits and unit tests, and merged into `develop` via Pull Requests `#1`, `#2`, `#3`, and `#4` (`98ec2b7`, `be08bdb`, `f689779`, `5e566a8`). Across the project, more than 25 commits were recorded on `develop` covering characterization tests, baseline analysis, UML modeling, four feature refactorings, unit tests, and progress reports.
+Four non-overlapping `refactor/*` feature branches were created from `develop`, each containing focused commits and unit tests, and merged into `develop` via Pull Requests `#1`, `#2`, `#3`, and `#4` (`98ec2b7`, `be08bdb`, `f689779`, `5e566a8`). To align `develop` with `origin/main` without altering non-Python implementations, `origin/main` was merged into `develop` (`2a38f8f`) and the 10 non-Python directories were restored to their `origin/main` baseline (`31242fb`).
 
-At the time of writing this report, the final `develop -> main` Pull Request, `v1.0.0` Git tag, and GitHub Release `v1.0.0` are pending final review and execution on GitHub.
+Finally, `develop` was merged into `main` via [PR #5](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/5) (`ff5b644`, 100 changed files, 0 non-Python files), tagged as `v1.0.0` on commit `ff5b644`, and published as GitHub Release [SCD Legacy Python Refactoring — Version 1.0.0](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/releases/tag/v1.0.0). Across the project, 30+ meaningful commits were recorded covering characterization tests, baseline analysis, UML modeling, four feature refactorings, unit tests, and documentation.
 
 ---
 

@@ -1,17 +1,21 @@
 # GitHub & Assignment Evidence Checklist
 
-The following screenshots are required for final university submission. Because GitHub Web UI screenshots cannot be captured directly from the local terminal environment, `final-uml-diagram.png` (copied from `docs/design-model.png`) is included here, and the remaining GitHub Web UI screenshots must be captured manually after the final `develop -> main` PR and `v1.0.0` release are completed.
+Genuine screenshots captured from the public GitHub repository (`https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring`) and the generated UML diagram:
 
 | Required Evidence | Filename | Status |
-| --- | --- | --- |
-| Final UML class diagram | `docs/evidence/final-uml-diagram.png` | Captured |
-| GitHub collaborators | `docs/evidence/collaborators.png` | Pending (capture from GitHub Settings -> Collaborators) |
-| Repository branches | `docs/evidence/repository-branches.png` | Pending (capture from GitHub Branches page) |
-| Four feature branches | `docs/evidence/feature-branches.png` | Pending (capture from GitHub Branches page) |
-| PR #1 (Teller Catalog Contract) | `docs/evidence/pr-01-teller-catalog.png` | Pending (capture from `/pull/1`) |
-| PR #2 (Offer Strategies) | `docs/evidence/pr-02-offer-strategies.png` | Pending (capture from `/pull/2`) |
-| PR #3 (Receipt Printer) | `docs/evidence/pr-03-receipt-printer.png` | Pending (capture from `/pull/3`) |
-| PR #4 (Receipt & Domain Models) | `docs/evidence/pr-04-domain-models.png` | Pending (capture from `/pull/4`) |
-| Final `develop` -> `main` PR | `docs/evidence/final-release-pr.png` | Pending (capture after creating/merging final PR) |
-| Git commit history | `docs/evidence/commit-history.png` | Pending (capture from GitHub Commits page) |
-| GitHub Release `v1.0.0` | `docs/evidence/github-release-v1.0.0.png` | Pending (capture after publishing `v1.0.0`) |
+|---|---|---|
+| GitHub repository collaborators | `01-github-collaborators.png` | **Pending** (requires authenticated owner access to `Settings -> Collaborators`) |
+| Repository branches (`main` & `develop`) | `02-main-and-develop-branches.png` | Captured (`/branches`) |
+| Four feature branches | `03-feature-branches.png` | Captured (`/branches`) |
+| PR #1 merged | `04-pr-1-teller-catalog.png` | Captured (`/pull/1`) |
+| PR #2 merged | `05-pr-2-offer-strategy.png` | Captured (`/pull/2`) |
+| PR #3 merged | `06-pr-3-receipt-printer.png` | Captured (`/pull/3`) |
+| PR #4 merged | `07-pr-4-domain-models.png` | Captured (`/pull/4`) |
+| Final PR #5 merged | `08-final-pr-5-merged.png` | Captured (`/pull/5`) |
+| Git commit history | `09-git-commit-history.png` | Captured (`/commits/main`) |
+| GitHub Release `v1.0.0` | `10-github-release-v1.0.0.png` | Captured (`/releases/tag/v1.0.0`) |
+| Final UML class diagram | `11-final-uml-diagram.png` | Captured (`docs/design-model.png`) |
+
+### How to Capture `01-github-collaborators.png` Manually
+1. Sign in as `shahmeer-codes` on GitHub and open `https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/settings/access`.
+2. Take a screenshot showing all four collaborators (`shahmeer-codes`, `Ahmad-naqvi`, `mughal-codes`, `shahnawz-tech`) and save it as `docs/evidence/01-github-collaborators.png`.

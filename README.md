@@ -101,16 +101,19 @@ main
 - **PR #2 (Decompose Offer Calculation):** https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/2 (`be08bdb`)
 - **PR #3 (Receipt Printer Cleanup):** https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/3 (`f689779`)
 - **PR #4 (Receipt and Domain Models):** https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/4 (`5e566a8`)
+- **PR #5 (Final `develop -> main` Release):** https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/5 (`ff5b644`, Merged)
 
 ## 18. Changelog
 
 ### v1.0.0
 - Added 10 characterization tests (`python/tests/test_characterization.py`) and 14 unit tests across refactored modules (`42 passed` total).
 - Refactored `SupermarketCatalog` and `Teller` (`PR #1`), `ShoppingCart` and `OfferStrategy` hierarchy (`PR #2`), `ReceiptFormatter` and `ReceiptPrinter` (`PR #3`), and `Receipt` and `model_objects` (`PR #4`).
+- Integrated `develop` into `main` via [PR #5](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/5) (`ff5b644`).
 - Added baseline analysis, refactoring log, UML class diagram (`docs/design-model.png`), and final assignment report (`docs/final-assignment-report.md`).
-- GitHub Release `v1.0.0`: Pending merge of final `develop -> main` Pull Request.
+- Published GitHub Release `v1.0.0`: https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/releases/tag/v1.0.0
 
 ## 19. Release Information
-- **Target Release Tag:** `v1.0.0` (to be created and published after `develop -> main` PR is reviewed and merged)
+- **Published Release Tag:** `v1.0.0` (`ff5b644`)
+- **GitHub Release URL:** https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/releases/tag/v1.0.0
 - **Final Assignment Report:** [docs/final-assignment-report.md](docs/final-assignment-report.md)
 - **Completion Report:** [docs/progress-reports/final-completion-report.md](docs/progress-reports/final-completion-report.md)
