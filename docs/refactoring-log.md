@@ -17,7 +17,7 @@
 - **Relevant Files:** `python/catalog.py`, `python/teller.py`, `python/tests/fake_catalog.py`, `python/tests/test_teller_catalog.py`
 - **Feature Branch:** `refactor/teller-catalog-contract`
 - **Commit Hashes:** `c827f23`, `df98093`
-- **PR Link (Pending Creation on GitHub):** `https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/new/refactor/teller-catalog-contract`
+- **PR Link:** [PR #1](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/1) (Merged: `98ec2b7`)
 - **Test Results:** `cd python && pytest -v` — **31 passed in 0.63s**
 
 ---
@@ -30,7 +30,7 @@
 - **Relevant Files:** `python/offer_strategies.py`, `python/shopping_cart.py`, `python/tests/test_offer_strategies.py`
 - **Feature Branch:** `refactor/decompose-offer-calculation`
 - **Commit Hashes:** `a493feb`, `e0135a3`
-- **PR Link (Pending Creation on GitHub):** `https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/new/refactor/decompose-offer-calculation`
+- **PR Link:** [PR #2](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/2) (Merged: `be08bdb`)
 - **Test Results:** `cd python && pytest -v` — **32 passed in 0.67s**
 
 ---
@@ -43,7 +43,7 @@
 - **Relevant Files:** `python/receipt_printer.py`, `python/tests/test_receipt_formatter.py`
 - **Feature Branch:** `refactor/receipt-printer-cleanup`
 - **Commit Hashes:** `cf9882b`, `a7b99a1`
-- **PR Link (Pending Creation on GitHub):** `https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/new/refactor/receipt-printer-cleanup`
+- **PR Link:** [PR #3](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/3) (Merged: `f689779`)
 - **Test Results:** `cd python && pytest -v` — **32 passed in 0.62s**
 
 ---
@@ -56,5 +56,5 @@
 - **Relevant Files:** `python/receipt.py`, `python/model_objects.py`, `python/tests/test_receipt_and_models.py`
 - **Feature Branch:** `refactor/receipt-and-domain-models`
 - **Commit Hashes:** `f0b9fb1`, `a0a23cc`
-- **PR Link (Pending Creation on GitHub):** `https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/new/refactor/receipt-and-domain-models`
+- **PR Link:** [PR #4](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/4) (Merged: `5e566a8`)
 - **Test Results:** `cd python && pytest -v` — **31 passed in 0.64s**

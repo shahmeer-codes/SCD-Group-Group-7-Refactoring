@@ -1,20 +1,20 @@
 # Phase 3 Progress Report — Four-Member Refactoring, Feature Branches & Pull Requests
 
 ## 1. Implementation Summary
-All four distinct refactorings were implemented on separate feature branches created from `develop` (`a651612`), preserving exact external behavior across all characterization and approval tests. No unrelated language implementations were modified, and `main` was not modified.
+All four distinct refactorings were implemented on separate feature branches created from `develop` (`a651612`), merged into `develop` via Pull Requests `#1`, `#2`, `#3`, and `#4`, and verified together on `develop` (`98ec2b7`). Exact external behavior is preserved across all characterization, approval, and unit tests. No unrelated language implementations were modified, and `main` remains untouched.
 
-> **GitHub & Attribution Transparency:** Because `gh` CLI is not installed in this environment and collaborator accounts (`Ahmad-naqvi`, `mughal-codes`, `shahnawz-tech`) cannot be impersonated, all feature branches and commits were created and pushed under `shahmeer-codes`. Pull Request creation, peer review, and merging into `develop` must be completed on GitHub using the links and PR templates below.
+> **GitHub & Attribution Transparency:** Because `gh` CLI was not installed in this environment and collaborator accounts (`Ahmad-naqvi`, `mughal-codes`, `shahnawz-tech`) cannot be impersonated, the feature branch commits were created under `shahmeer-codes` and merged via GitHub Pull Requests `#1`–`#4`.
 
 ---
 
-## 2. Feature Branches, Commits & PR Status
+## 2. Feature Branches, Commits & Merged PR Status
 
-| Member | Branch | Commits | Test Results | PR Status |
-| --- | --- | --- | --- | --- |
-| `shahmeer-codes` (Owner) | `refactor/teller-catalog-contract` | `c827f23`, `df98093` | `31 passed in 0.63s` | Ready to open: [Create PR](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/new/refactor/teller-catalog-contract) |
-| `Ahmad-naqvi` (prepared by `shahmeer-codes`) | `refactor/decompose-offer-calculation` | `a493feb`, `e0135a3` | `32 passed in 0.67s` | Ready to open: [Create PR](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/new/refactor/decompose-offer-calculation) |
-| `mughal-codes` (prepared by `shahmeer-codes`) | `refactor/receipt-printer-cleanup` | `cf9882b`, `a7b99a1` | `32 passed in 0.62s` | Ready to open: [Create PR](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/new/refactor/receipt-printer-cleanup) |
-| `shahnawz-tech` (prepared by `shahmeer-codes`) | `refactor/receipt-and-domain-models` | `f0b9fb1`, `a0a23cc` | `31 passed in 0.64s` | Ready to open: [Create PR](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/new/refactor/receipt-and-domain-models) |
+| Member | Branch | Feature Commits | Merge Commit | Merged PR | Integrated Test Results |
+| --- | --- | --- | --- | --- | --- |
+| `shahmeer-codes` (Owner) | `refactor/teller-catalog-contract` | `c827f23`, `df98093` | `98ec2b7` | [PR #1](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/1) | `31 passed` on branch; **`42 passed in 1.19s`** integrated on `develop` |
+| `Ahmad-naqvi` (prepared by `shahmeer-codes`) | `refactor/decompose-offer-calculation` | `a493feb`, `e0135a3` | `be08bdb` | [PR #2](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/2) | `32 passed` on branch; **`42 passed in 1.19s`** integrated on `develop` |
+| `mughal-codes` (prepared by `shahmeer-codes`) | `refactor/receipt-printer-cleanup` | `cf9882b`, `a7b99a1` | `f689779` | [PR #3](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/3) | `32 passed` on branch; **`42 passed in 1.19s`** integrated on `develop` |
+| `shahnawz-tech` (prepared by `shahmeer-codes`) | `refactor/receipt-and-domain-models` | `f0b9fb1`, `a0a23cc` | `5e566a8` | [PR #4](https://github.com/shahmeer-codes/SCD-Group-Group-7-Refactoring/pull/4) | `31 passed` on branch; **`42 passed in 1.19s`** integrated on `develop` |
 
 ---
 
@@ -61,9 +61,9 @@ All four distinct refactorings were implemented on separate feature branches cre
 ## 4. Phase 3 Verification Checklist
 - [x] **At least four distinct refactorings:** 4 completed across non-overlapping scopes.
 - [x] **Each on its own feature branch:** All 4 `refactor/*` branches created from `develop` and pushed to `origin`.
-- [ ] **Each has a PR targeting `develop` & `develop` contains approved changes:** Pending manual PR creation, peer review, and merge on GitHub (`gh` CLI not installed; collaborator accounts not impersonated).
-- [x] **At least 12 meaningful commits across the group:** 4 commits on `develop` (Phase 2) + 8 commits across the 4 feature branches + Phase 3 documentation commits = **14 commits**.
-- [x] **Complete Python test suite passes:** Verified on all 4 feature branches (`31–32 passed`) and on `develop` (`28 passed`).
+- [x] **Each has a PR targeting `develop` & `develop` contains approved changes:** All 4 PRs merged into `develop` (`#1` `98ec2b7`, `#2` `be08bdb`, `#3` `f689779`, `#4` `5e566a8`).
+- [x] **At least 12 meaningful commits across the group:** 4 commits on `develop` (Phase 2) + 8 commits across the 4 feature branches + 4 PR merge commits + Phase 3 documentation commits = **18+ commits**.
+- [x] **Complete Python test suite passes on integrated `develop`:** `cd python && pytest -v` -> **`42 passed in 1.19s`** (12 `test_supermarket.py`, 6 `test_receipt_printer.py`, 10 `test_characterization.py`, 3 `test_teller_catalog.py`, 4 `test_offer_strategies.py`, 4 `test_receipt_formatter.py`, 3 `test_receipt_and_models.py`).
 - [x] **`main` not prematurely modified:** `origin/main` remains untouched.
 - [x] **No unrelated language implementation changed:** Only `python/` and `docs/` were modified.
 - [x] **UML & documentation updated:** [design-model.puml](file:///c:/Users/Shahmeer/Desktop/ahmad%20project/SCD-Group-Group-7-Refactoring/docs/design-model.puml), [design-model.png](file:///c:/Users/Shahmeer/Desktop/ahmad%20project/SCD-Group-Group-7-Refactoring/docs/design-model.png), [refactoring-log.md](file:///c:/Users/Shahmeer/Desktop/ahmad%20project/SCD-Group-Group-7-Refactoring/docs/refactoring-log.md), and `member-1` through `member-4` reports created.
