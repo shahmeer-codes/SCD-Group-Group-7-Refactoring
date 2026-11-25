@@ -13,14 +13,18 @@ class Teller:
 
     def checks_out_articles_from(self, the_cart):
         receipt = Receipt()
-        product_quantities = the_cart.items
-        for pq in product_quantities:
-            p = pq.product
-            quantity = pq.quantity
-            unit_price = self.catalog.unit_price(p)
-            price = quantity * unit_price
-            receipt.add_product(p, quantity, unit_price, price)
-
+        self._add_cart_items_to_receipt(the_cart, receipt)
         the_cart.handle_offers(receipt, self.offers, self.catalog)
-
         return receipt
+
+    def _add_cart_items_to_receipt(self, the_cart, receipt):
+        """Record each item in the cart on the receipt with its catalog price."""
+        for pq in the_cart.items:
+            product = pq.product
+            quantity = pq.quantity
+            unit_price = self.catalog.unit_price(product)
+            price = quantity * unit_price
+            receipt.add_product(product, quantity, unit_price, price)
+
+    def product_with_name(self, name):
+        return self.catalog.product_with_name(name)

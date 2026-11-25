@@ -1,0 +1,171 @@
+@startuml design-model
+title Supermarket Receipt System — Target Object-Oriented Design (Refactored)
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam linetype ortho
+
+package "Catalog & Checkout" {
+  abstract class SupermarketCatalog {
+    + add_product(product: Product, price: float): void
+    + unit_price(product: Product): float
+    + product_with_name(name: str): Product
+  }
+
+  class FakeCatalog {
+    - products: dict[str, Product]
+    - prices: dict[str, float]
+    + add_product(product: Product, price: float): void
+    + unit_price(product: Product): float
+    + product_with_name(name: str): Product
+  }
+
+  class Teller {
+    - catalog: SupermarketCatalog
+    - offers: dict[Product, Offer]
+    + add_special_offer(offer_type: SpecialOfferType, product: Product, argument: float): void
+    + checks_out_articles_from(cart: ShoppingCart): Receipt
+    + product_with_name(name: str): Product
+    - _add_cart_items_to_receipt(cart: ShoppingCart, receipt: Receipt): void
+  }
+
+  class ShoppingCart {
+    - _items: list[ProductQuantity]
+    - _product_quantities: dict[Product, float]
+    + items: list[ProductQuantity]
+    + product_quantities: dict[Product, float]
+    + add_item(product: Product): void
+    + add_item_quantity(product: Product, quantity: float): void
+    + handle_offers(receipt: Receipt, offers: dict[Product, Offer], catalog: SupermarketCatalog): void
+  }
+}
+
+package "Offers & Discount Strategies" {
+  enum SpecialOfferType {
+    THREE_FOR_TWO
+    TEN_PERCENT_DISCOUNT
+    TWO_FOR_AMOUNT
+    FIVE_FOR_AMOUNT
+  }
+
+  class Offer {
+    + offer_type: SpecialOfferType
+    + product: Product
+    + argument: float
+  }
+
+  abstract class OfferStrategy {
+    + {abstract} calculate_discount(product: Product, quantity: float, unit_price: float, argument: float): Discount
+  }
+
+  class ThreeForTwoStrategy {
+    + BUNDLE_SIZE: int = 3
+    + PAID_ITEMS_PER_BUNDLE: int = 2
+    + calculate_discount(product: Product, quantity: float, unit_price: float, argument: float): Discount
+  }
+
+  class PercentDiscountStrategy {
+    + PERCENT_DIVISOR: float = 100.0
+    + calculate_discount(product: Product, quantity: float, unit_price: float, argument: float): Discount
+  }
+
+  class BundleForAmountStrategy {
+    - bundle_size: int
+    - floor_bundle_count: bool
+    + calculate_discount(product: Product, quantity: float, unit_price: float, argument: float): Discount
+  }
+}
+
+package "Domain Models & Receipt" {
+  enum ProductUnit {
+    EACH
+    KILO
+  }
+
+  class Product {
+    + name: str
+    + unit: ProductUnit
+  }
+
+  class ProductQuantity {
+    + product: Product
+    + quantity: float
+  }
+
+  class Discount {
+    + product: Product
+    + description: str
+    + discount_amount: float
+  }
+
+  class ReceiptItem {
+    + product: Product
+    + quantity: float
+    + price: float
+    + total_price: float
+  }
+
+  class Receipt {
+    - _items: list[ReceiptItem]
+    - _discounts: list[Discount]
+    + items: list[ReceiptItem]
+    + discounts: list[Discount]
+    + items_total(): float
+    + discounts_total(): float
+    + add_product(product: Product, quantity: float, price: float, total_price: float): void
+    + add_discount(discount: Discount): void
+    + total_price(): float
+  }
+}
+
+package "Presentation" {
+  class ReceiptFormatter {
+    + format_price(price: float): str
+    + format_quantity(item: ReceiptItem): str
+    + format_discount_label(discount: Discount): str
+  }
+
+  class ReceiptPrinter {
+    + DEFAULT_COLUMNS: int = 40
+    + SINGLE_ITEM_QUANTITY: int = 1
+    - columns: int
+    - formatter: ReceiptFormatter
+    + print_receipt(receipt: Receipt): str
+    + print_receipt_item(item: ReceiptItem): str
+    + print_discount(discount: Discount): str
+    + present_total(receipt: Receipt): str
+    + format_line_with_whitespace(name: str, value: str): str
+    + print_price(price: float): str
+    + print_quantity(item: ReceiptItem): str
+  }
+}
+
+SupermarketCatalog <|-- FakeCatalog
+Teller --> SupermarketCatalog : uses
+Teller "1" o-- "*" Offer : manages
+Teller ..> ShoppingCart : checks out
+Teller ..> Receipt : creates
+
+ShoppingCart "1" *-- "*" ProductQuantity : contains
+ShoppingCart ..> Offer : evaluates
+ShoppingCart ..> OfferStrategy : delegates via OFFER_STRATEGIES
+ShoppingCart ..> Receipt : adds discounts
+
+Product --> ProductUnit : unit
+ProductQuantity --> Product : product
+Offer --> SpecialOfferType : offer_type
+Offer --> Product : applies to
+OfferStrategy <|-- ThreeForTwoStrategy
+OfferStrategy <|-- PercentDiscountStrategy
+OfferStrategy <|-- BundleForAmountStrategy
+OfferStrategy ..> Discount : produces
+
+Receipt "1" *-- "*" ReceiptItem : items
+Receipt "1" *-- "*" Discount : discounts
+ReceiptItem --> Product : product
+Discount --> Product : product
+
+ReceiptPrinter *-- ReceiptFormatter : uses
+ReceiptPrinter ..> Receipt : formats
+
+@enduml
