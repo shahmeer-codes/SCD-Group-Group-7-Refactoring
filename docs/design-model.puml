@@ -52,7 +52,6 @@ package "Offers & Discount Strategies" {
     + offer_type: SpecialOfferType
     + product: Product
     + argument: float
-    + calculate_discount(quantity: float, unit_price: float): Discount
   }
 
   abstract class OfferStrategy {
@@ -61,6 +60,7 @@ package "Offers & Discount Strategies" {
 
   class ThreeForTwoStrategy {
     + BUNDLE_SIZE: int = 3
+    + PAID_ITEMS_PER_BUNDLE: int = 2
     + calculate_discount(product: Product, quantity: float, unit_price: float, argument: float): Discount
   }
 
@@ -71,6 +71,7 @@ package "Offers & Discount Strategies" {
 
   class BundleForAmountStrategy {
     - bundle_size: int
+    - floor_bundle_count: bool
     + calculate_discount(product: Product, quantity: float, unit_price: float, argument: float): Discount
   }
 }
@@ -109,6 +110,8 @@ package "Domain Models & Receipt" {
     - _discounts: list[Discount]
     + items: list[ReceiptItem]
     + discounts: list[Discount]
+    + items_total(): float
+    + discounts_total(): float
     + add_product(product: Product, quantity: float, price: float, total_price: float): void
     + add_discount(discount: Discount): void
     + total_price(): float
@@ -124,6 +127,7 @@ package "Presentation" {
 
   class ReceiptPrinter {
     + DEFAULT_COLUMNS: int = 40
+    + SINGLE_ITEM_QUANTITY: int = 1
     - columns: int
     - formatter: ReceiptFormatter
     + print_receipt(receipt: Receipt): str
@@ -144,13 +148,13 @@ Teller ..> Receipt : creates
 
 ShoppingCart "1" *-- "*" ProductQuantity : contains
 ShoppingCart ..> Offer : evaluates
+ShoppingCart ..> OfferStrategy : delegates via OFFER_STRATEGIES
 ShoppingCart ..> Receipt : adds discounts
 
 Product --> ProductUnit : unit
 ProductQuantity --> Product : product
 Offer --> SpecialOfferType : offer_type
 Offer --> Product : applies to
-Offer ..> OfferStrategy : delegates
 OfferStrategy <|-- ThreeForTwoStrategy
 OfferStrategy <|-- PercentDiscountStrategy
 OfferStrategy <|-- BundleForAmountStrategy
